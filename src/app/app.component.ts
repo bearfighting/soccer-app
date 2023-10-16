@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'soccer-app';
+  countries: string[] = [
+    "England", "Spain", "Germany", "France", "Italy"
+  ];
+  title = 'FOOTBALL UPDATES';
+
+  handleCountryClick(country: string) {
+    alert("The country selected is " + country)
+  }
 }
