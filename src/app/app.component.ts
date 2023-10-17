@@ -10,8 +10,4 @@ export class AppComponent {
     "England", "Spain", "Germany", "France", "Italy"
   ];
   title = 'FOOTBALL UPDATES';
-
-  handleCountryClick(country: string) {
-    alert("The country selected is " + country)
-  }
 }

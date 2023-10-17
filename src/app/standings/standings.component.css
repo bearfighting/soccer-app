@@ -1,0 +1,24 @@
+.standings-container {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    border: 0.1rem solid;
+}
+
+th {
+    border: 0.05rem solid;
+}
+
+td {
+    border: 0.05rem solid;
+}
+
+img.team-logo {
+    width: 4rem;
+}
+
+th, td {
+    padding: 0.5rem 0.5rem;
+}

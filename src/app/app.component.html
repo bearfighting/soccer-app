@@ -3,7 +3,9 @@
     <h3>{{title}}</h3>
   </div>
   <div class="nav-container">
-    <button *ngFor="let country of countries" (click)="handleCountryClick(country)" class="country-button">{{country}}</button>
+    <a *ngFor="let country of countries" [routerLink]='["/standings", country]'>{{country}}</a>
   </div>
 </div>
-
+<div class="main-container">
+  <router-outlet></router-outlet>
+</div>
