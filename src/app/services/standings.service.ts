@@ -17,6 +17,8 @@ export class StandingsService {
       return of(this.cache[leagueId]);
     } else {
       return this.http.get<Leagues>(`${environment.baseURL}/leagues?id=${leagueId}`).pipe(
+        // tap(data => console.log("The season data is ", data)),
+        // catchError(error => {console.log(error); return of(error)}),
         switchMap(data => {
           const currentSeason = data?.response[0].seasons.find((season) => season.current)?.year!!
           return this.http.get<Standings>(`${environment.baseURL}/standings?season=${currentSeason}&league=${leagueId}`).pipe(tap(console.log), map(data => {return {currentSeason, standings: data.response[0].league.standings[0].slice(0, 10)}}), tap(data => this.cache[leagueId] = data))

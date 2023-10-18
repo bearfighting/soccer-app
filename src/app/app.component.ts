@@ -12,6 +12,6 @@ export class AppComponent {
   title = 'FOOTBALL UPDATES';
 
   getLegueId(country: string) {
-    return environment.leagueIds[country];
+    return environment.leagueIds[country.toLowerCase()];
   }
 }

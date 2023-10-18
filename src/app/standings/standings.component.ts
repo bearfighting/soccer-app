@@ -20,6 +20,7 @@ export class StandingsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.routeParamsSubscription = this.activeRoute.paramMap.subscribe((params) => {
       this.leagueId = Number(params.get("league"))
+      console.log("The league id is ", this.leagueId, "and the params is ", params);
       this.seasonsService.fetchSeasons(this.leagueId).subscribe(data => {this.standings = data.standings; this.currentSeason = data.currentSeason});
     })
   }
