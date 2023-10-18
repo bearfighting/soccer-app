@@ -512,7 +512,7 @@ export class ResultsComponent implements OnInit {
       const teamId = Number(data.get('team'))
       const currentSeason = Number(data.get('season'))
       this.leagueId = Number(data.get('league'))
-      this.resultsService.fetchResults(teamId, currentSeason, this.leagueId).subscribe(data => {console.log("the data of results is ", data); this.results = data.response});
+      this.resultsService.fetchResults(teamId, currentSeason, this.leagueId).subscribe(data => {this.results = data.response});
       }
     )
   }
