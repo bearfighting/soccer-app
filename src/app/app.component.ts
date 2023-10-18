@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { environment } from 'src/enviroments/enviroements';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,4 +10,8 @@ export class AppComponent {
     "England", "Spain", "Germany", "France", "Italy"
   ];
   title = 'FOOTBALL UPDATES';
+
+  getLegueId(country: string) {
+    return environment.leagueIds[country];
+  }
 }

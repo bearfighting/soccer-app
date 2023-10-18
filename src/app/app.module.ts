@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { StandingsComponent } from './standings/standings.component';
 import { MainComponent } from './main/main.component';
 import { AccessInterceptor } from './services/access.interceptor';
+import { ResultsComponent } from './results/results.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StandingsComponent,
-    MainComponent
+    MainComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,

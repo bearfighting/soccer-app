@@ -11,7 +11,7 @@
             <th>Goal Difference</th>
             <th>Points</th>
         </tr>
-        <tr *ngFor="let standing of standings">
+        <tr *ngFor="let standing of standings" (click)="handleStandingClick(standing.team.id)">
             <td>{{standing.rank}}</td>
             <td><img [src]="standing.team.logo" [alt]="standing.team.name" class="team-logo"></td>
             <td>{{standing.team.name}}</td>

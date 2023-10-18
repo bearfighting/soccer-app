@@ -1,0 +1,23 @@
+div.result-table-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+tr {
+    height: 6rem;
+}
+
+td {
+    padding: 1rem;
+}
+
+img {
+    width: 4rem;
+}
+
+button {
+    padding: 1rem 3rem;
+}

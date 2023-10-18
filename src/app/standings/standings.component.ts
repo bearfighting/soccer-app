@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from "rxjs"
 import { environment } from 'src/enviroments/enviroements';
-import { SeasonsService } from '../services/seasons.service';
-import {Standing} from '../types/standings.type';
+import { StandingsService } from '../services/standings.service';
+import { Standing } from '../types/standings.type';
 
 @Component({
   selector: 'app-standings',
@@ -13,16 +13,22 @@ import {Standing} from '../types/standings.type';
 export class StandingsComponent implements OnInit, OnDestroy {
   routeParamsSubscription: Subscription | undefined
   standings: Array<Standing> | undefined;
-  constructor(private route: ActivatedRoute, private seasonsService: SeasonsService) {}
+  currentSeason!: number;
+  leagueId!: number; 
+  constructor(private activeRoute: ActivatedRoute, private seasonsService: StandingsService, private router: Router) { }
 
   ngOnInit(): void {
-    this.routeParamsSubscription = this.route.paramMap.subscribe((params) => {
-      const leagueId = environment.leagueIds[params.get("country")?.toLowerCase() || ""]
-      this.seasonsService.fetchSeasons(leagueId).subscribe(data => this.standings = data);
+    this.routeParamsSubscription = this.activeRoute.paramMap.subscribe((params) => {
+      this.leagueId = Number(params.get("league"))
+      this.seasonsService.fetchSeasons(this.leagueId).subscribe(data => {this.standings = data.standings; this.currentSeason = data.currentSeason});
     })
   }
 
   ngOnDestroy(): void {
     this.routeParamsSubscription?.unsubscribe();
+  }
+
+  handleStandingClick(teamId: number) {
+    this.router.navigate(["results", teamId, this.currentSeason, this.leagueId])
   }
 }
