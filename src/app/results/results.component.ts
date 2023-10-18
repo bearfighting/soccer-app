@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ResultsService } from '../services/results.service';
+import Fixture from '../types/fixtures.type';
 
 const results = {
   "get": "fixtures",
@@ -502,16 +503,16 @@ const results = {
   styleUrls: ['./results.component.css']
 })
 export class ResultsComponent implements OnInit {
-  results = results.response
+  results!: Fixture
   leagueId! : number
   constructor(private activeRoute: ActivatedRoute, private resultsService: ResultsService, private router: Router) { }
 
   ngOnInit(): void {
     this.activeRoute.paramMap.subscribe(data => {
-    //   const teamId = Number(data.get('team'))
-    //   const currentSeason = Number(data.get('season'))
+      const teamId = Number(data.get('team'))
+      const currentSeason = Number(data.get('season'))
       this.leagueId = Number(data.get('league'))
-    //   this.resultsService.fetchResults(teamId, currentSeason, this.leagueId).subscribe(data => console.log("the data of results is ", data));
+      this.resultsService.fetchResults(teamId, currentSeason, this.leagueId).subscribe(data => {console.log("the data of results is ", data); this.results = data.response});
       }
     )
   }
