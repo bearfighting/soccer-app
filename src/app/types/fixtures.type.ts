@@ -38,5 +38,5 @@ export default interface Fixture {
 }
 
 export interface Response {
-    response: Fixture
+    response: Fixture[]
 }

@@ -503,7 +503,7 @@ const results = {
   styleUrls: ['./results.component.css']
 })
 export class ResultsComponent implements OnInit {
-  results!: Fixture
+  results!: Fixture[]
   leagueId! : number
   constructor(private activeRoute: ActivatedRoute, private resultsService: ResultsService, private router: Router) { }
 
