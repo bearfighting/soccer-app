@@ -1,17 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ResultsService } from '../services/results.service';
 import Fixture from '../types/fixtures.type';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-results',
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.css']
 })
-export class ResultsComponent implements OnInit {
+export class ResultsComponent implements OnInit, OnDestroy {
   results!: Fixture[]
   leagueId! : number
   loading: boolean = false;
+  resultSubscription?: Subscription;
   constructor(private activeRoute: ActivatedRoute, private resultsService: ResultsService, private router: Router) { }
 
   ngOnInit(): void {
@@ -23,6 +25,10 @@ export class ResultsComponent implements OnInit {
       this.resultsService.fetchResults(teamId, currentSeason, this.leagueId).subscribe(data => {this.loading = false; this.results = data.response});
       }
     )
+  }
+
+  ngOnDestroy(): void {
+    this.resultSubscription?.unsubscribe();
   }
 
   handleBackClick() {
