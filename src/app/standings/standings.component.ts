@@ -11,8 +11,8 @@ import { Standing } from '../types/standings.type';
   styleUrls: ['./standings.component.css']
 })
 export class StandingsComponent implements OnInit, OnDestroy {
-  routeParamsSubscription: Subscription | undefined
-  standings: Array<Standing> | undefined;
+  routeParamsSubscription?: Subscription
+  standings?: Array<Standing>;
   currentSeason!: number;
   leagueId!: number;
   loading: boolean = false;
