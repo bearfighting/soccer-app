@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./results.component.css']
 })
 export class ResultsComponent implements OnInit, OnDestroy {
-  results!: Fixture[]
+  results?: Fixture[]
   leagueId! : number
   loading: boolean = false;
   resultSubscription?: Subscription;
