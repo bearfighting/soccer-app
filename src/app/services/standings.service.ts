@@ -20,7 +20,7 @@ export class StandingsService {
         switchMap(data => {
           const currentSeason = data?.response[0].seasons.find((season) => season.current)?.year!!
           return this.http.get<Standings>(`${environment.baseURL}/standings?season=${currentSeason}&league=${leagueId}`).pipe(
-            map(data => { return { currentSeason, standings: data.response[0].league.standings[0].slice(0, 10) } }),
+            map(data => { return { currentSeason, standings: data.response[0].league.standings[0] } }),
             tap(data => this.cache[leagueId] = data))
         })
       )

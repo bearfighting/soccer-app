@@ -21,3 +21,11 @@ img {
 button {
     padding: 1rem 3rem;
 }
+
+tr:hover {
+    background-color: blanchedalmond;
+}
+
+tr:active {
+    background-color: chartreuse;
+}

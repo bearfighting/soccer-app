@@ -22,3 +22,11 @@ img.team-logo {
 th, td {
     padding: 0.5rem 0.5rem;
 }
+
+tr:hover {
+    background-color: blanchedalmond;
+}
+
+tr:active {
+    background-color: chartreuse;
+}
