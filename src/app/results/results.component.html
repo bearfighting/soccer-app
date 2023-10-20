@@ -1,15 +1,18 @@
 <div class="result-table-container">
-    <table class="results-table">
-        <tr *ngFor="let result of results" class="table-body">
-            <td class="home-logo"><img [src]="result.teams.home.logo" [alt]="result.teams.home.name"></td>
-            <td class="home-name">{{result.teams.home.name}}</td>
-            <td class="home-score">{{result.goals.home}}</td>
-            <td class="versus">-</td>
-            <td class="away-score">{{result.goals.away}}</td>
-            <td class="away-name">{{result.teams.away.name}}</td>
-            <td class="away-logo"><img [src]="result.teams.away.logo" [alt]="result.teams.away.name"></td>
-        </tr>
-    </table>
+    <h3 *ngIf="loading; else table">Loading...</h3>
+    <ng-template #table>
+        <table class="results-table">
+            <tr *ngFor="let result of results" class="table-body">
+                <td class="home-logo"><img [src]="result.teams.home.logo" [alt]="result.teams.home.name"></td>
+                <td class="home-name">{{result.teams.home.name}}</td>
+                <td class="home-score">{{result.goals.home}}</td>
+                <td class="versus">-</td>
+                <td class="away-score">{{result.goals.away}}</td>
+                <td class="away-name">{{result.teams.away.name}}</td>
+                <td class="away-logo"><img [src]="result.teams.away.logo" [alt]="result.teams.away.name"></td>
+            </tr>
+        </table>
+    </ng-template>
     <button (click)="handleBackClick()">Back</button>
 </div>
 
