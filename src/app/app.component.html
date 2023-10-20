@@ -3,7 +3,7 @@
     <h3>{{title}}</h3>
   </div>
   <div class="nav-container">
-    <a *ngFor="let country of countries" [routerLink]='["/standings", getLegueId(country)]'>{{country}}</a>
+    <a *ngFor="let country of countries" [routerLink]='["/standings", getLegueId(country)]' id="{{country | lowercase}}Select">{{country}}</a>
   </div>
 </div>
 <div class="main-container">
