@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from "rxjs"
-import { environment } from 'src/enviroments/enviroements';
 import { StandingsService } from '../services/standings.service';
 import { Standing } from '../types/standings.type';
 

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, catchError, map, of, switchMap, take, tap } from "rxjs"
+import { map, of, switchMap, tap } from "rxjs"
 import { environment } from 'src/enviroments/enviroements';
 import Leagues from "../types/leagues.type"
 import Standings, { Standing } from '../types/standings.type';
