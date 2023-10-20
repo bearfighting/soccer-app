@@ -15,7 +15,7 @@ export class StandingsComponent implements OnInit, OnDestroy {
   standings?: Array<Standing>;
   private currentSeason!: number;
   private leagueId!: number;
-  private loading: boolean = false;
+  loading: boolean = false;
   
   constructor(private activeRoute: ActivatedRoute, private seasonsService: StandingsService, private router: Router) { }
 
