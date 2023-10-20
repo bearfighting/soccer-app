@@ -11,11 +11,11 @@ import { Standing } from '../types/standings.type';
   styleUrls: ['./standings.component.css']
 })
 export class StandingsComponent implements OnInit, OnDestroy {
-  routeParamsSubscription?: Subscription
+  private routeParamsSubscription?: Subscription
   standings?: Array<Standing>;
-  currentSeason!: number;
-  leagueId!: number;
-  loading: boolean = false;
+  private currentSeason!: number;
+  private leagueId!: number;
+  private loading: boolean = false;
   
   constructor(private activeRoute: ActivatedRoute, private seasonsService: StandingsService, private router: Router) { }
 

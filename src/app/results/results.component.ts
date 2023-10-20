@@ -11,9 +11,9 @@ import { Subscription } from 'rxjs';
 })
 export class ResultsComponent implements OnInit, OnDestroy {
   results?: Fixture[]
-  leagueId! : number
-  loading: boolean = false;
-  resultSubscription?: Subscription;
+  private leagueId! : number
+  private loading: boolean = false;
+  private resultSubscription?: Subscription;
   constructor(private activeRoute: ActivatedRoute, private resultsService: ResultsService, private router: Router) { }
 
   ngOnInit(): void {
